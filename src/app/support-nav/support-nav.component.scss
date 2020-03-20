@@ -1,0 +1,59 @@
+.amado-nav li a:hover,
+.amado-nav li a:focus {
+  color: #fbb710;
+}
+
+.amado-nav li a {
+	font-size: 14px;
+	text-transform: uppercase;
+	position: relative;
+	z-index: 1;
+	padding: 20px 0;
+	display: block;
+	line-height: .9;
+	color: #131212;
+	font-weight: 400;
+}
+
+a:hover, a:focus {
+	-webkit-transition: all 500ms ease 0s;
+	transition: all 500ms ease 0s;
+	text-decoration: none;
+	outline: 0 solid transparent;
+	color: #131212;
+	font-weight: 400;
+	font-size: 12px;
+}
+
+.amado-nav li.active a::after {
+	left: -3rem;
+}
+
+.amado-nav li:hover a::after, .amado-nav li:focus a::after {
+	left: -3rem;
+}
+
+.amado-nav li a::after {
+	-webkit-transition-duration: 500ms;
+	transition-duration: 500ms;
+	width: 30px;
+	height: 3px;
+	position: absolute;
+	top: 50%;
+	margin-top: -1.5px;
+    left: -75px;
+	background-color: #fbb710;
+	z-index: 10;
+	content: '';
+}
+
+a {
+	color: #007bff;
+	text-decoration: none;
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+}
+
+ul li, ol li {
+	list-style: none;
+}

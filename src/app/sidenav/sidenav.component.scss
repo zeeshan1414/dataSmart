@@ -1,0 +1,58 @@
+.filter-wrap {
+	background: #fff;
+	border-radius: 10px;
+  box-shadow: 0 10px 30px 0 rgba(153,153,153,.2);
+	display: table; 
+}
+
+.menu-area .filters {
+  padding: 0;
+	overflow: hidden;
+	text-align: center;
+}
+
+.menu-area .filters a.active {
+	color: #fff;
+	background: #f42f2c;
+}
+
+.menu-area .filters a {
+	padding: 40px 0;
+	// max-width: 184px;
+	cursor: pointer;
+	position: relative;
+	color: #222;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.filter-wrap a {
+	display: block;
+	border-right: 1px solid #edf6ff;
+}
+
+.menu-area .filters-content {
+	margin-top: 50px;
+}
+
+.single-menu {
+	background: #fff;
+	border-radius: 10px;
+	padding: 30px;
+	margin-top: 20px;
+}
+
+.single-menu .title-wrap {
+	margin-bottom: 20px;
+}
+
+.single-menu p {
+	margin-bottom: 0;
+	max-width: 392px;
+}
+
+a:hover {
+  text-decoration:none;
+  background: lightcoral;
+}
+

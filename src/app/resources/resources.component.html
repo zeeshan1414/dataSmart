@@ -1,0 +1,99 @@
+<section class="ml-4 mr-4 mt-5">
+  <div class="row">
+
+    <!-- Side NavBar -->
+    <div class="col-3">
+      <aside>
+        <app-sidenav (gradeEvent)="getGrades($event)" (subjectEvent)="getSubjects($event)" (allResourceEvent)="getAllResources($event)" (edtechEvent)="getEdtech($event)" (publisherEvent)="getPublishers($event)"></app-sidenav>
+      </aside>
+    </div>
+
+    <div class="col-9">
+      <div class="row">
+
+        <!-- Search Bar -->
+        <div class="col-12">
+          <div class="container animated bounceInDown search-bar">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+            </div>
+          </div>
+          <br>
+        </div>
+
+        <!-- Add Resource -->
+        <div class="container">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn animated zoomIn btn-primary mb-4 float-right" data-toggle="modal"
+            data-target="#exampleModalLong">
+            <i class="fa fa-plus" aria-hidden="true"></i> Add resource
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Resource title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+                  <form>
+                    <input type="text" name="title" [(ngModel)]="title" class="form-control" placeholder="Title" required>
+                    <input type="text" name="description" [(ngModel)]="text" class="form-control" placeholder="Description" required>
+                    <input type="text" name= "img_url" [(ngModel)]="url" class="form-control" placeholder="Image Url" required>
+                  </form>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" (click)="add()" data-dismiss="modal" class="btn btn-primary">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource Cards -->
+        <div *ngIf="allResource" class="container">
+          <div class="row">
+            <div class="col-sm-3" *ngIf="(resources |filter:term).length === 0">
+              <h3 style="color: grey;">"No matches"</h3>
+            </div>
+            <div *ngFor="let resource of resources |filter:term" class="animated fadeInRight col-sm-3">
+              <div class="card mb-3" style="width: 100%;">
+                <img src="{{ resource.imgUrl }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{ resource.title }}</h5>
+                  <p class="card-text">{{ resource.text }}</p>
+                  <a href="#" class="btn btn-primary">{{ resource.linkText }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container" *ngIf="grades">
+          <app-grades></app-grades>
+        </div>
+
+        <div class="container" *ngIf="subjects">
+          <app-subjects></app-subjects>
+        </div>
+
+        <div class="container" *ngIf="publishers">
+          <app-publishers></app-publishers>
+        </div>
+
+        <div class="container" *ngIf="edtech">
+          <app-edtech-partners></app-edtech-partners>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
